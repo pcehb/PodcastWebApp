@@ -1,0 +1,23 @@
+<ion-header>
+<ion-toolbar color="primary" >
+<ion-buttons slot="start">
+<ion-menu-button auto-hide="false" color="light">
+</ion-menu-button>
+</ion-buttons>
+<ion-title>Search Films</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar #mySearchBar [(ngModel)]="searchQuery" placeholder="Search by title" [debounce]="250" (change)="onInput()" autocorrect="off">
+  </ion-searchbar>
+  <ion-list>
+    <ion-item button color="light" *ngFor="let item of products" [href]="'/details/' + item.ProductId" routerDirection="forward">
+      <ion-label>
+        {{item.ProductName}}
+        <br />
+        <span class="sublabel">{{item.Director}}</span>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
