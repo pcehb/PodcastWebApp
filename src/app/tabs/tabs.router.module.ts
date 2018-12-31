@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
-import { AboutPage } from '../about/about.page';
+import { GenrePage } from '../about/about.page';
 import { ContactPage } from '../contact/contact.page';
 import { SearchPage } from '../search/search.page';
 
@@ -14,34 +14,35 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/tabs/(home:home)',
+        redirectTo: '/tabs/(YourShows:YourShows)',
         pathMatch: 'full',
       },
       {
-        path: 'home',
-        outlet: 'home',
+        path: 'YourShows',
+        outlet: 'YourShows',
         component: HomePage
       },
       {
-        path: 'about',
-        outlet: 'about',
-        component: AboutPage
+        path: 'Genres',
+        outlet: 'Genres',
+        component: GenrePage
       },
       {
-        path: 'contact',
-        outlet: 'contact',
-        component: ContactPage
-      },
-      {
-        path: 'search',
-        outlet: 'search',
+        path: 'Search',
+        outlet: 'Search',
         component: SearchPage
+      },
+      {
+        path: 'Settings',
+        outlet: 'Settings',
+        component: ContactPage
       }
+
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/(home:home)',
+    redirectTo: '/tabs/(YourShows:YourShows)',
     pathMatch: 'full'
   }
 ];
