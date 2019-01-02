@@ -4,7 +4,7 @@
 <ion-menu-button auto-hide="false" color="light">
 </ion-menu-button>
 </ion-buttons>
-<ion-title>Search Films</ion-title>
+<ion-title>Search Podcasts</ion-title>
 </ion-toolbar>
 </ion-header>
 
@@ -12,11 +12,14 @@
   <ion-searchbar #mySearchBar [(ngModel)]="searchQuery" placeholder="Search by title" [debounce]="250" (change)="onInput()" autocorrect="off">
   </ion-searchbar>
   <ion-list>
-    <ion-item button color="light" *ngFor="let item of products" [href]="'/details/' + item.ProductId" routerDirection="forward">
+    <ion-item button color="light" *ngFor="let item of products" [href]="'/details/' + item.upc" routerDirection="forward">
       <ion-label>
-        {{item.ProductName}}
-        <br />
-        <span class="sublabel">{{item.Director}}</span>
+        <div class="column left"><img class="artwork" src={{item.artworkUrl100}} alt={{item.collectionName}}></div>
+        <div class="column right">
+        <p class="podcastName">{{item.collectionName}}</p>
+        <br/>
+        <p class="sublabel">{{item.artistName}}</p>
+        </div>
       </ion-label>
     </ion-item>
   </ion-list>

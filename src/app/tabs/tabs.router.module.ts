@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
-import { GenrePage } from '../about/about.page';
-import { ContactPage } from '../contact/contact.page';
+import { GenrePage } from '../genres/genres.page';
+import { SettingsPage } from '../settings/settings.page';
 import { SearchPage } from '../search/search.page';
 
 const routes: Routes = [
@@ -35,9 +35,8 @@ const routes: Routes = [
       {
         path: 'Settings',
         outlet: 'Settings',
-        component: ContactPage
+        component: SettingsPage
       }
-
     ]
   },
   {

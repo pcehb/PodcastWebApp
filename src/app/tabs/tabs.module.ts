@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
-import { ContactPageModule } from '../contact/contact.module';
-import { GenrePageModule } from '../about/about.module';
+import { SettingsPageModule } from '../settings/settings.module';
+import { GenrePageModule } from '../genres/genres.module';
 import { HomePageModule } from '../home/home.module';
 import { SearchPageModule } from '../search/search.module';
 
@@ -19,7 +19,7 @@ import { SearchPageModule } from '../search/search.module';
     TabsPageRoutingModule,
     HomePageModule,
     GenrePageModule,
-    ContactPageModule,
+    SettingsPageModule,
     SearchPageModule
   ],
   declarations: [TabsPage]

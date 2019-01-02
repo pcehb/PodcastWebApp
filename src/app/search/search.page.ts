@@ -24,7 +24,7 @@ export class SearchPage {
   onInput() {
     if (this.searchQuery != "") {
       this.api.getProductBySearch(this.searchQuery, this.search_type).subscribe (response => {
-        this.products = response.Products;
+        this.products = response.results;
       });
     }
   }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-genre',
-  templateUrl: 'about.page.html',
-  styleUrls: ['about.page.scss']
+  templateUrl: 'genres.page.html',
+  styleUrls: ['genres.page.scss']
 })
 export class GenrePage {}
