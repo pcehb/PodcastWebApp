@@ -13,6 +13,11 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+import {RssProvider} from './providers/rss/rss'
+import {HttpModule, JsonpModule} from "@angular/http";
+
+import {FilmDbService} from './services/film-db.service';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCl86O7FaRaqVKF1PzjW1PKic5vZOP2ftE",
@@ -26,12 +31,13 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, AngularFireModule.initializeApp(firebaseConfig),
+  imports: [BrowserModule, IonicModule.forRoot(), JsonpModule, HttpModule, AppRoutingModule, HttpClientModule, AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    RssProvider, FilmDbService
   ],
   bootstrap: [AppComponent]
 })

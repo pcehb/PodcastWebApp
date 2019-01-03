@@ -8,7 +8,7 @@ import {FilmDbService} from '../services/film-db.service';
 })
 export class HomePage {
   categories: any;
-  products: any;
+  podcasts: any;
 
   constructor(private api: FilmDbService){
   }
@@ -19,13 +19,13 @@ export class HomePage {
         this.categories = response.Categories;
       })
       this.api.getFilmsByCategory(startId).subscribe(response => {
-        this.products = response.Products;
+        this.podcasts = response.Products;
       })
     }
 
     changeCategory(catId) {
       this.api.getFilmsByCategory(catId).subscribe(response => {
-        this.products = response.Products;
+        this.podcasts = response.Products;
       })
     }
   }

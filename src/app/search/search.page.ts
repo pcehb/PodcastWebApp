@@ -9,7 +9,7 @@ import{ FilmDbService} from '../services/film-db.service';
 })
 export class SearchPage {
   searchQuery: string = '';
-  products: any;
+  podcasts: any;
   search_type: any;
 
   @ViewChild('mySearchBar', {read: ElementRef}) mySearchBar:ElementRef;
@@ -23,9 +23,7 @@ export class SearchPage {
 
   onInput() {
     if (this.searchQuery != "") {
-      this.api.getProductBySearch(this.searchQuery, this.search_type).subscribe (response => {
-        this.products = response.results;
-      });
+      this.api.getProductBySearch(this.searchQuery, this.search_type);
     }
   }
 
@@ -36,7 +34,7 @@ export class SearchPage {
     }
     else {
       this.search_type = 0;
-      this.renderer.setAttribute(this.mySearchBar.nativeElement, "placeholder", "Search by name");
+      this.renderer.setAttribute(this.mySearchBar.nativeElement, "placeholder", "Search by hosts");
     }
     this.onInput();
   }

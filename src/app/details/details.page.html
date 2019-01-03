@@ -1,22 +1,31 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-button href="/search" routerDirection="backward">Back</ion-button>
+      <!-- <ion-back-button ng-click="myGoBack()" defaultHref="Search"></ion-back-button> -->
       </ion-buttons>
-    <ion-title *ngIf="item">{{item.ProductName}}</ion-title>
+    <ion-title *ngIf="item">Show Episodes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="item">
-    <ion-item>{{item.ProductName}}&nbsp;({{item.Year}})</ion-item>
-    <ion-item>{{item.Director}}</ion-item>
-    <ion-item>{{item.Screen}}</ion-item>
-    <ion-item>
-      <ion-badge>Cert: {{item.Certificate}}</ion-badge>
-      <ion-badge>&#163;{{item.Price}}</ion-badge>
-    </ion-item>
-    <ion-item class="details" style="font-style: italic">{{item.Actors}}</ion-item>
-    <ion-item class="details">{{item.Description}}</ion-item>
+    <ion-label>
+    <div class="column left"><img class="artwork" src={{item.artworkUrl600}} alt={{item.collectionName}}></div>
+    <div class="column right">
+    <h2><b><p class="podcastName">{{item.collectionName}}</p></b>
+    <p class="sublabel">{{item.artistName}}</p></h2>
+    </div>
+    </ion-label>
   </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let item of rssDataArray.items">
+      <ion-label class="episode">
+        <b><h2>{{item.title}}</h2></b>
+        <div id="less">{{item.description}}</div>
+        <!-- <p class="description more">{{item.description}}</p> -->
+        <button onclick="moreDesc()">More...</button>
+      </ion-label>
+    </ion-item>
+    </ion-list>
 </ion-content>

@@ -24,10 +24,10 @@ export class AppComponent {
     const authObserver = afAuth.authState.subscribe( user => {
       if (user) {
         console.log(user.email);
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
         authObserver.unsubscribe();
       } else {
-        this.router.navigate(['/Login']);
+        this.router.navigate(['Login']);
         authObserver.unsubscribe();
       }
     });
