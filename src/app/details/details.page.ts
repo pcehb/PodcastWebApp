@@ -11,6 +11,7 @@ import { RssProvider } from '../providers/rss/rss';
 export class DetailsPage implements OnInit {
   item:any;
   rssDataArray: any = [];
+  date: any;
 
   constructor(private route: ActivatedRoute, private api: FilmDbService, public rssProvider: RssProvider) {
   }
@@ -24,16 +25,15 @@ export class DetailsPage implements OnInit {
    );
  }
 
- moreDesc() {
-  var x = document.getElementById("less");
-  //var y = document.getElementById("description more");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-    //y.style.display = "none";
-  } else {
-    x.style.display = "none";
-    //y.style.display = "block";
-  }
+getDate(pubDate){
+  var date = new Date(pubDate);
+  var months = Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+  var string = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear()
+  return string;
+}
+
+playEpisode(episodeUrl){
+  document.getElementById("footer").innerHTML = '<audio src='+episodeUrl+' controls autoplay style="width:100%"> Your browser does not support the audio element.</audio>';
 }
 
   ngOnInit() {

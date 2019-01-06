@@ -11,6 +11,23 @@
   width: 50%;
 }
 
+.episode-left{
+  width: 10%;
+  float: left;
+  white-space: pre-line;
+}
+
+.play{
+  margin-top: 10px;
+}
+
+.episode-right{
+  width: 90%;
+  float: left;
+  padding: 10px;
+  white-space: pre-line;
+}
+
 ion-list{
   margin: 0px;
   padding: 0px;
@@ -20,8 +37,4 @@ ion-list{
   background-color: #ecf4dc;
   padding: 10px;
   white-space: pre-line;
-}
-#less{
-  height: 100px;
-  overflow: hidden;
 }

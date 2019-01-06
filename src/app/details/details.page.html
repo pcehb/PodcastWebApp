@@ -2,7 +2,6 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button href="/search" routerDirection="backward">Back</ion-button>
-      <!-- <ion-back-button ng-click="myGoBack()" defaultHref="Search"></ion-back-button> -->
       </ion-buttons>
     <ion-title *ngIf="item">Show Episodes</ion-title>
   </ion-toolbar>
@@ -21,11 +20,17 @@
   <ion-list>
     <ion-item *ngFor="let item of rssDataArray.items">
       <ion-label class="episode">
-        <b><h2>{{item.title}}</h2></b>
-        <div id="less">{{item.description}}</div>
-        <!-- <p class="description more">{{item.description}}</p> -->
-        <button onclick="moreDesc()">More...</button>
+        <div class="episode-left"><input type="image" (click)="playEpisode(item.enclosure.link)" class="play" src="./assets/images/ios-play-circle.svg" alt="Play"></div>
+        <div class="episode-right">
+          <b><h2>{{item.title}}</h2></b>
+          <h3>Uploaded on {{getDate(item.pubDate)}}</h3>
+        </div>
       </ion-label>
     </ion-item>
     </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar id="footer">
+  </ion-toolbar>
+</ion-footer>
