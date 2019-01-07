@@ -33,8 +33,7 @@ getDate(pubDate){
   return string;
 }
 
-playEpisode(episodeUrl, title, desc, pubDate, author){
-  //document.getElementById("footer").innerHTML = '<h3>'+title+'</h3><audio src='+episodeUrl+' controls autoplay style="width:100%"> Your browser does not support the audio element.</audio>';
+playEpisode(artworkUrl600, episodeUrl, title, desc, pubDate, author){
   if (typeof(Storage) !== "undefined") {
       localStorage.episodeUrl = String(episodeUrl);
       localStorage.title = String(title);
@@ -42,7 +41,7 @@ playEpisode(episodeUrl, title, desc, pubDate, author){
       localStorage.pubDate = String(pubDate);
       // localStorage.collectionName = String(collectionName);
       localStorage.author = String(author);
-      // localStorage.artworkUrl600 = String(artworkUrl600);
+      localStorage.artworkUrl600 = String(artworkUrl600);
       this.rssProvider.currentlyPlaying();
   } else {
   }

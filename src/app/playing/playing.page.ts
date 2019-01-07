@@ -11,16 +11,35 @@ export class PlayingPage implements OnInit {
 
   constructor(public rssProvider: RssProvider, public events: Events) {
     events.subscribe('url', (_url) => {
-      // document.getElementById("podcastName").innerHTML = url;
       var episodeUrl = localStorage.getItem("episodeUrl");
       var title = localStorage.getItem("title");
-document.getElementById("playing").innerHTML = '<h3>'+title+'</h3><audio src='+episodeUrl+' controls autoplay style="width:100%"> Your browser does not support the audio element.</audio>';
+      var desc = localStorage.getItem("desc");
+      var pubDate = localStorage.getItem("pubDate");
+      var author = localStorage.getItem("author");
+
+      var date = new Date(pubDate);
+      var months = Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+      var publishDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear()
+
+      // var collectionName = localStorage.getItem("collectionName");
+      var artworkUrl600 = localStorage.getItem("artworkUrl600");
+
+      document.getElementById("playing").innerHTML =
+      '<h2>'
+      +title+
+      '</h2><img src="'+artworkUrl600+'"></><p>'
+      +author+
+      '</p><p>'
+      +publishDate+
+      '</p><p>'
+      +desc+
+      '</p>';
+
+      document.getElementById("footer").innerHTML = '<audio src='+episodeUrl+
+      ' controls autoplay style="width:100%">Your browser does not support the audio element.</audio>';
 
     });
-
 }
-
-
   ngOnInit() {
   }
 
