@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button href="/search" routerDirection="backward">Back</ion-button>
+      <ion-back-button></ion-back-button>
       </ion-buttons>
     <ion-title *ngIf="item">Episodes</ion-title>
   </ion-toolbar>
@@ -18,7 +18,7 @@
     </ion-label>
   </ion-list>
   <ion-list>
-    <ion-item button *ngFor="let item of rssDataArray.items" (click)="playEpisode(item.enclosure.link, item.title)">
+    <ion-item button *ngFor="let item of rssDataArray.items" (click)="playEpisode(item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
       <ion-label class="episode">
         <div class="episode-right">
           <b><h2>{{item.title}}</h2></b>
@@ -28,8 +28,3 @@
     </ion-item>
     </ion-list>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar id="footer">
-  </ion-toolbar>
-</ion-footer>
