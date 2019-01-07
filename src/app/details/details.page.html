@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-button href="/search" routerDirection="backward">Back</ion-button>
       </ion-buttons>
-    <ion-title *ngIf="item">Show Episodes</ion-title>
+    <ion-title *ngIf="item">Episodes</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,9 +18,8 @@
     </ion-label>
   </ion-list>
   <ion-list>
-    <ion-item *ngFor="let item of rssDataArray.items">
+    <ion-item button *ngFor="let item of rssDataArray.items" (click)="playEpisode(item.enclosure.link, item.title)">
       <ion-label class="episode">
-        <div class="episode-left"><input type="image" (click)="playEpisode(item.enclosure.link)" class="play" src="./assets/images/ios-play-circle.svg" alt="Play"></div>
         <div class="episode-right">
           <b><h2>{{item.title}}</h2></b>
           <h3>Uploaded on {{getDate(item.pubDate)}}</h3>

@@ -32,8 +32,8 @@ getDate(pubDate){
   return string;
 }
 
-playEpisode(episodeUrl){
-  document.getElementById("footer").innerHTML = '<audio src='+episodeUrl+' controls autoplay style="width:100%"> Your browser does not support the audio element.</audio>';
+playEpisode(episodeUrl, title){
+  document.getElementById("footer").innerHTML = '<h3>'+title+'</h3><audio src='+episodeUrl+' controls autoplay style="width:100%"> Your browser does not support the audio element.</audio>';
 }
 
   ngOnInit() {
