@@ -10,6 +10,7 @@ import { SettingsPageModule } from '../settings/settings.module';
 import { GenrePageModule } from '../genres/genres.module';
 import { HomePageModule } from '../home/home.module';
 import { SearchPageModule } from '../search/search.module';
+import { PlayingPageModule } from '../playing/playing.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { SearchPageModule } from '../search/search.module';
     TabsPageRoutingModule,
     HomePageModule,
     GenrePageModule,
+    PlayingPageModule,
     SettingsPageModule,
     SearchPageModule
   ],

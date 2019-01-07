@@ -9,6 +9,9 @@
   <ion-tab tab="Search">
     <ion-router-outlet name="Search"></ion-router-outlet>
   </ion-tab>
+  <ion-tab tab="Playing">
+    <ion-router-outlet name="Playing"></ion-router-outlet>
+  </ion-tab>
   <ion-tab tab="Settings">
     <ion-router-outlet name="Settings"></ion-router-outlet>
   </ion-tab>
@@ -28,6 +31,11 @@
     <ion-tab-button tab="Search" href="/tabs/(Search:Search)">
       <ion-icon name="Search"></ion-icon>
       <ion-label>Search</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="Playing" href="/tabs/(Playing:Playing)">
+      <ion-icon name="ios-play-circle"></ion-icon>
+      <ion-label>Playing</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="Settings" href="/tabs/(Settings:Settings)">

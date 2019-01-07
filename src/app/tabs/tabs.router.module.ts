@@ -6,6 +6,7 @@ import { HomePage } from '../home/home.page';
 import { GenrePage } from '../genres/genres.page';
 import { SettingsPage } from '../settings/settings.page';
 import { SearchPage } from '../search/search.page';
+import { PlayingPage } from '../playing/playing.page';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
         path: 'Search',
         outlet: 'Search',
         component: SearchPage
+      },
+      {
+        path: 'Playing',
+        outlet: 'Playing',
+        component: PlayingPage
       },
       {
         path: 'Settings',

@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule'},
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'resetpassword', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
-  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' }
+  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
+  { path: 'playing', loadChildren: './playing/playing.module#PlayingPageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

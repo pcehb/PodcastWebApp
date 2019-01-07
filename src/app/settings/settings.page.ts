@@ -21,7 +21,7 @@ export class SettingsPage implements OnInit{
             text: 'Ok',
             role: 'cancel',
             handler: () => {
-              this.router.navigate(['/Login']);
+              this.router.navigate(['/login']);
             },
           },
         ],
