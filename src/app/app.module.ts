@@ -17,6 +17,7 @@ import {RssProvider} from './providers/rss/rss'
 import {HttpModule, JsonpModule} from "@angular/http";
 
 import {FilmDbService} from './services/film-db.service';
+import {Events} from 'ionic-angular';
 
 
 export const firebaseConfig = {
@@ -37,7 +38,7 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    RssProvider, FilmDbService
+    RssProvider, FilmDbService, Events
   ],
   bootstrap: [AppComponent]
 })

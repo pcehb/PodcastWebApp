@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Events } from 'ionic-angular';
+
 
 @Injectable()
 export class RssProvider {
 
   private API_URL: string;
 
-   constructor(public http: HttpClient) {
+   constructor(public http: HttpClient, public events: Events) {
      this.API_URL = "https://api.rss2json.com/v1/api.json";
+   }
+
+   currentlyPlaying(){
+     console.log("playing");
+     var episodeUrl = localStorage.getItem("episodeUrl");
+     this.events.publish('url', episodeUrl);
    }
 
    GetRSS(rss_url) {

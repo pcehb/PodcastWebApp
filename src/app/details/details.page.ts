@@ -3,6 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 import { FilmDbService} from '../services/film-db.service';
 import { RssProvider } from '../providers/rss/rss';
 
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
@@ -42,8 +43,8 @@ playEpisode(episodeUrl, title, desc, pubDate, author){
       // localStorage.collectionName = String(collectionName);
       localStorage.author = String(author);
       // localStorage.artworkUrl600 = String(artworkUrl600);
+      this.rssProvider.currentlyPlaying();
   } else {
-    //console.log = "Sorry, your browser does not support web storage...";
   }
 }
 

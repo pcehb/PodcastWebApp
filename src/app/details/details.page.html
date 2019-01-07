@@ -18,7 +18,7 @@
     </ion-label>
   </ion-list>
   <ion-list>
-    <ion-item button *ngFor="let item of rssDataArray.items" (click)="playEpisode(item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
+    <ion-item button *ngFor="let item of rssDataArray.items" href="/tabs/(Playing:Playing)" (click)="playEpisode(item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
       <ion-label class="episode">
         <div class="episode-right">
           <b><h2>{{item.title}}</h2></b>
