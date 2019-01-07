@@ -10,15 +10,15 @@
 <ion-content>
   <ion-list *ngIf="item">
     <ion-label>
-    <div class="column left"><img class="artwork" src={{item.artworkUrl600}} alt={{item.collectionName}}></div>
+    <div class="column left"><img id="artwork" src={{item.artworkUrl600}} alt={{item.collectionName}}></div>
     <div class="column right">
-    <h2><b><p class="podcastName">{{item.collectionName}}</p></b>
+    <h2><b><p id="podcastName">{{item.collectionName}}</p></b>
     <p class="sublabel">{{item.artistName}}</p></h2>
     </div>
     </ion-label>
   </ion-list>
   <ion-list>
-    <ion-item button *ngFor="let item of rssDataArray.items" href="/tabs/(Playing:Playing)" (click)="playEpisode(item.artworkUrl600, item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
+    <ion-item button *ngFor="let item of rssDataArray.items" href="/tabs/(Playing:Playing)" (click)="playEpisode(item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
       <ion-label class="episode">
         <div class="episode-right">
           <b><h2>{{item.title}}</h2></b>

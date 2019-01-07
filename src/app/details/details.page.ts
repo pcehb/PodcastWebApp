@@ -33,15 +33,15 @@ getDate(pubDate){
   return string;
 }
 
-playEpisode(artworkUrl600, episodeUrl, title, desc, pubDate, author){
+playEpisode(episodeUrl, title, desc, pubDate, author){
   if (typeof(Storage) !== "undefined") {
       localStorage.episodeUrl = String(episodeUrl);
       localStorage.title = String(title);
       localStorage.desc = String(desc);
       localStorage.pubDate = String(pubDate);
-      // localStorage.collectionName = String(collectionName);
       localStorage.author = String(author);
-      localStorage.artworkUrl600 = String(artworkUrl600);
+      localStorage.collectionName = document.getElementById("podcastName").innerHTML;
+      localStorage.artworkUrl600 = (<HTMLImageElement>document.getElementById("artwork")).src;
       this.rssProvider.currentlyPlaying();
   } else {
   }

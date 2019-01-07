@@ -21,13 +21,15 @@ export class PlayingPage implements OnInit {
       var months = Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
       var publishDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear()
 
-      // var collectionName = localStorage.getItem("collectionName");
+      var collectionName = localStorage.getItem("collectionName");
       var artworkUrl600 = localStorage.getItem("artworkUrl600");
 
       document.getElementById("playing").innerHTML =
       '<h2>'
       +title+
-      '</h2><img src="'+artworkUrl600+'"></><p>'
+      '</h2><p>'
+      +collectionName+
+      '</p><img src="'+artworkUrl600+'"></><p>'
       +author+
       '</p><p>'
       +publishDate+
