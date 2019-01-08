@@ -38,8 +38,10 @@ export class iTunesDbService {
     }
 
     getThisProduct(productid): Observable<any> {
-      return this.http.get(this.iTunesUrl + 'lookup?id=' + productid);
+      return this.http.get(this.iTunesUrl + 'lookup?id=' + productid +'&callback=');
     }
+
+
 
   getProductBySearch(keystr, searchType): Promise<any>{
     if (searchType == 1){
