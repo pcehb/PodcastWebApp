@@ -1,0 +1,33 @@
+.column {
+  float: left;
+  padding: 10px;
+  white-space: pre-line;
+}
+
+.episode{
+  background-color: #ecf4dc;
+  padding: 10px;
+  white-space: pre-line;
+}
+
+.episode-left{
+  width: 15%;
+  padding: 10px 0;
+  float: left;
+}
+
+.play{
+  margin-top: 10px;
+}
+
+.episode-right{
+  width: 85%;
+  float: left;
+  padding: 10px;
+  white-space: pre-line;
+}
+
+ion-list{
+  margin: 0px;
+  padding: 0px;
+}

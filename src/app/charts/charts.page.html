@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>The UK Top Charts!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item button *ngFor="let item of rssDataArray.items" href="/tabs/(Playing:Playing)" (click)="playEpisode(item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
+      <ion-label class="episode">
+        <div class="episode-left">
+          <img src="./assets/images/ios-play-circle.svg" alt="Play button">
+          </div>
+        <div class="episode-right">
+          <b><h2>{{item.title}}</h2></b>
+          <h3>Uploaded on {{getDate(item.pubDate)}}</h3>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

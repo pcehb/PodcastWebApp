@@ -7,7 +7,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
 import { SettingsPageModule } from '../settings/settings.module';
-import { GenrePageModule } from '../genres/genres.module';
+import { ChartPageModule } from '../charts/charts.module';
 import { HomePageModule } from '../home/home.module';
 import { SearchPageModule } from '../search/search.module';
 import { PlayingPageModule } from '../playing/playing.module';
@@ -19,7 +19,7 @@ import { PlayingPageModule } from '../playing/playing.module';
     FormsModule,
     TabsPageRoutingModule,
     HomePageModule,
-    GenrePageModule,
+    ChartPageModule,
     PlayingPageModule,
     SettingsPageModule,
     SearchPageModule

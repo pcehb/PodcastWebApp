@@ -30,7 +30,7 @@ export class iTunesDbService {
   }
 
   getCategories(): Observable <any>{
-    return this.http.get(this.iTunesUrl + 'search?/genres');
+    return this.http.get(this.iTunesUrl + 'search?/charts');
   }
 
     getFilmsByCategory(category): Observable<any> {

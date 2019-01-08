@@ -28,4 +28,13 @@ export class RssProvider {
      return this.http.get(this.API_URL, params);
    }
 
+   GetChartRSS(rss_url) {
+     const RSS_URL: any = rss_url;
+     const API_KEY: any = '4qhx5xcwzsxwdaksndbuj2zhvqtup1lflzkliksv';
+
+     const params = { params: new HttpParams().set('rss_url', RSS_URL).set('api_key',API_KEY)
+     }
+     return this.http.get(this.API_URL, params);
+   }
+
 }
