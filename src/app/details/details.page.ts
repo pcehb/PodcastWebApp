@@ -11,19 +11,27 @@ import { RssProvider } from '../providers/rss/rss';
 })
 export class DetailsPage implements OnInit {
   item:any;
-  rssDataArray: any = [];
+  rssDataArrayAsc: any = [];
+  rssDataArrayDesc: any = [];
   date: any;
+  order: string = "desc";
+  loader: any;
 
   constructor(private route: ActivatedRoute, private api: FilmDbService, public rssProvider: RssProvider) {
   }
 
   Get_RSS_Data(feedUrl) {
-   this.rssProvider.GetRSS(feedUrl).subscribe(
+   this.rssProvider.GetRSS(feedUrl, "desc").subscribe(
        data => {
-         this.rssDataArray = data;
-         console.log(data);
+         this.rssDataArrayDesc = data;
        }
    );
+   this.rssProvider.GetRSS(feedUrl, "asc").subscribe(
+       data => {
+         this.rssDataArrayAsc = data;
+       }
+   );
+
  }
 
 getDate(pubDate){
@@ -48,12 +56,14 @@ playEpisode(episodeUrl, title, desc, pubDate, author){
 }
 
   ngOnInit() {
+
     this.api.getThisProduct(this.route.snapshot.paramMap.get('id')).subscribe(
       response =>{
         this.Get_RSS_Data(response.results[0].feedUrl);
         console.log(response.results[0].feedUrl);
         this.item = response.results[0];
       });
+
   }
 
 }

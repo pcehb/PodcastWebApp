@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-button href="/tabs/(Search:Search)">
+  <ion-icon name="arrow-back"></ion-icon></ion-button>
       </ion-buttons>
     <ion-title *ngIf="item">Episodes</ion-title>
   </ion-toolbar>
@@ -17,9 +18,23 @@
     </div>
     </ion-label>
   </ion-list>
-  <ion-list>
-    <ion-item button *ngFor="let item of rssDataArray.items" href="/tabs/(Playing:Playing)" (click)="playEpisode(item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
+
+  <ion-segment [(ngModel)]="order">
+    <ion-segment-button value="desc">
+      Newest
+    </ion-segment-button>
+    <ion-segment-button value="asc">
+      Oldest
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="order">
+    <ion-list *ngSwitchCase="'desc'">
+    <ion-item button *ngFor="let item of rssDataArrayDesc.items" href="/tabs/(Playing:Playing)" (click)="playEpisode(item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
       <ion-label class="episode">
+        <div class="episode-left">
+          <img src="./assets/images/ios-play-circle.svg" alt="Play button">
+          </div>
         <div class="episode-right">
           <b><h2>{{item.title}}</h2></b>
           <h3>Uploaded on {{getDate(item.pubDate)}}</h3>
@@ -27,4 +42,21 @@
       </ion-label>
     </ion-item>
     </ion-list>
+    </div>
+
+    <div [ngSwitch]="order">
+      <ion-list *ngSwitchCase="'asc'">
+      <ion-item button *ngFor="let item of rssDataArrayAsc.items" href="/tabs/(Playing:Playing)" (click)="playEpisode(item.enclosure.link, item.title, item.description, item.pubDate, item.author)">
+        <ion-label class="episode">
+          <div class="episode-left">
+            <img src="./assets/images/ios-play-circle.svg" alt="Play button">
+            </div>
+          <div class="episode-right">
+            <b><h2>{{item.title}}</h2></b>
+            <h3>Uploaded on {{getDate(item.pubDate)}}</h3>
+          </div>
+        </ion-label>
+      </ion-item>
+      </ion-list>
+      </div>
 </ion-content>
