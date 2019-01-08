@@ -12,11 +12,13 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import {RssProvider} from './providers/rss/rss'
 import {HttpModule, JsonpModule} from "@angular/http";
 
-import {FilmDbService} from './services/film-db.service';
+import {iTunesDbService} from './services/itunes-db.service';
 import {LoadingController, Events} from 'ionic-angular';
 
 
@@ -33,10 +35,10 @@ export const firebaseConfig = {
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), JsonpModule, HttpModule, AppRoutingModule, HttpClientModule, AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule],
+    AngularFireAuthModule, AngularFireDatabaseModule, AngularFireStorageModule],
   providers: [StatusBar, SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    RssProvider, FilmDbService, Events, LoadingController],
+    RssProvider, iTunesDbService, Events, LoadingController],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

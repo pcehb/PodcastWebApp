@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import {FilmDbService} from '../services/film-db.service';
+import {iTunesDbService} from '../services/itunes-db.service';
+import { AlertController } from '@ionic/angular';
+import { Router, ActivatedRoute } from '@angular/router';
+import * as firebase from 'Firebase';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +12,14 @@ import {FilmDbService} from '../services/film-db.service';
 export class HomePage {
   categories: any;
   podcasts: any;
+  infos = [];
+  ref = firebase.database().ref('infos/');
 
-  constructor(private api: FilmDbService){
+  constructor(public router: Router, private api: iTunesDbService){
+    this.ref.on('value', resp => {
+    this.infos = [];
+    this.infos = snapshotToArray(resp);
+  });
   }
 
   ngOnInit() {

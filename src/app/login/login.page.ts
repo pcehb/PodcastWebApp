@@ -42,9 +42,7 @@ export class LoginPage implements OnInit {
     } else {
       console.log("FORM READ OK");
       const email = loginForm.value.email;
-      console.log(email);
       const password = loginForm.value.password;
-      console.log(password);
       this.authService.loginUser(email, password).then(
         () => {
           this.loading.dismiss().then(() => {

@@ -2,9 +2,15 @@
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-button href="/tabs/(Search:Search)">
-  <ion-icon name="arrow-back"></ion-icon></ion-button>
-      </ion-buttons>
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title *ngIf="item">Episodes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addShow()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

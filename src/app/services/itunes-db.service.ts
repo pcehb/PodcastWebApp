@@ -18,8 +18,7 @@ class SearchItem {
 
 @Injectable()
 
-
-export class FilmDbService {
+export class iTunesDbService {
   baseUrl: String;
   iTunesUrl: String;
   results: SearchItem[];

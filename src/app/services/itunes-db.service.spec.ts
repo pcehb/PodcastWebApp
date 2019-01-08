@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FilmDbService } from './film-db.service';
+import { iTunesDbService } from './itunes-db.service';
 
-describe('FilmDbService', () => {
+describe('iTunesDbService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: FilmDbService = TestBed.get(FilmDbService);
+    const service: iTunesDbService = TestBed.get(iTunesDbService);
     expect(service).toBeTruthy();
   });
 });

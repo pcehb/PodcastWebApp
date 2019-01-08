@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import { FilmDbService} from '../services/film-db.service';
+import { iTunesDbService} from '../services/itunes-db.service';
 import { RssProvider } from '../providers/rss/rss';
 
 
@@ -17,7 +17,7 @@ export class DetailsPage implements OnInit {
   order: string = "desc";
   loader: any;
 
-  constructor(private route: ActivatedRoute, private api: FilmDbService, public rssProvider: RssProvider) {
+  constructor(private route: ActivatedRoute, private api: iTunesDbService, public rssProvider: RssProvider) {
   }
 
   Get_RSS_Data(feedUrl) {
@@ -31,7 +31,6 @@ export class DetailsPage implements OnInit {
          this.rssDataArrayAsc = data;
        }
    );
-
  }
 
 getDate(pubDate){
@@ -53,6 +52,11 @@ playEpisode(episodeUrl, title, desc, pubDate, author){
       this.rssProvider.currentlyPlaying();
   } else {
   }
+}
+
+addShow(){
+  console.log("show added");
+  localStorage.id = this.route.snapshot.paramMap.get('id');
 }
 
   ngOnInit() {
