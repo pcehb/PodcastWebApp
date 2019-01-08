@@ -15,7 +15,7 @@ export class PlayingPage implements OnInit {
       var title = localStorage.getItem("title");
       var desc = localStorage.getItem("desc");
       var pubDate = localStorage.getItem("pubDate");
-      var author = localStorage.getItem("author");
+    //  var author = localStorage.getItem("author");
 
       var date = new Date(pubDate);
       var months = Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
@@ -24,18 +24,22 @@ export class PlayingPage implements OnInit {
       var collectionName = localStorage.getItem("collectionName");
       var artworkUrl600 = localStorage.getItem("artworkUrl600");
 
-      document.getElementById("playing").innerHTML =
-      '<h2>'
-      +title+
-      '</h2><p>'
-      +collectionName+
-      '</p><img src="'+artworkUrl600+'"></><p>'
-      +author+
-      '</p><p>'
-      +publishDate+
-      '</p><p>'
-      +desc+
-      '</p>';
+      // document.getElementById("playing").innerHTML =
+      // '<h2>'
+      // +title+
+      // '</h2><p>'
+      // +collectionName+
+      // '</p><img src="'+artworkUrl600+'"></><p>'
+      // +publishDate+
+      // '</p><br><p>'
+      // +desc+
+      // '</p>';
+
+      document.getElementById("title").innerHTML = title;
+      document.getElementById("collectionName").innerHTML = collectionName;
+      (<HTMLImageElement>document.getElementById("artworkUrl600")).src = artworkUrl600;
+      document.getElementById("publishDate").innerHTML = publishDate;
+      document.getElementById("desc").innerHTML = desc;
 
       document.getElementById("footer").innerHTML = '<audio src='+episodeUrl+
       ' controls autoplay style="width:100%">Your browser does not support the audio element.</audio>';

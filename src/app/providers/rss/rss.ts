@@ -13,7 +13,6 @@ export class RssProvider {
    }
 
    currentlyPlaying(){
-     console.log("playing");
      var episodeUrl = localStorage.getItem("episodeUrl");
      this.events.publish('url', episodeUrl);
    }
