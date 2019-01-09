@@ -3,7 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 import { iTunesDbService } from '../services/itunes-db.service';
 import { RssProvider } from '../providers/rss/rss';
 import { FirebaseService } from '../services/firebase.service';
-
+import * as firebase from 'Firebase';
 
 @Component({
   selector: 'app-details',
@@ -17,6 +17,8 @@ export class DetailsPage implements OnInit {
   date: any;
   order: string = "desc";
   loader: any;
+  currentUser = firebase.auth().currentUser;
+  ref = firebase.database().ref('shows/'+this.currentUser.uid+'/');
 
   constructor(private route: ActivatedRoute, private firebaseService: FirebaseService,
   private api: iTunesDbService, public rssProvider: RssProvider) {
@@ -62,7 +64,8 @@ playEpisode(episodeUrl, title, desc, pubDate, author){
       title: document.getElementById("podcastName").innerHTML,
       image: (<HTMLImageElement>document.getElementById("artwork")).src
     }
-    this.firebaseService.createShow(data);
+    let newInfo = firebase.database().ref('shows/'+this.currentUser.uid+'/').push();
+    newInfo.set(data);
 }
 
   ngOnInit() {
