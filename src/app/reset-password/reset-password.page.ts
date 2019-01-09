@@ -35,7 +35,7 @@ constructor(private authService: AuthService, private formBuilder: FormBuilder,
                   text: 'Ok',
                   role: 'cancel',
                   handler: () => {
-                    this.router.navigate(['/Login']);
+                    this.router.navigate(['/login']);
                   },
                 },
               ],
