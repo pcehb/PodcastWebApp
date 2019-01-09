@@ -24,24 +24,14 @@ export class iTunesDbService {
   results: SearchItem[];
 
   constructor(private http:HttpClient, private jsonp: Jsonp) {
-    this.baseUrl = "http://ltwexternal.staff.eda.kent.ac.uk/API/";
     this.iTunesUrl = "https://itunes.apple.com/";
     this.results = [];
   }
 
-  getCategories(): Observable <any>{
-    return this.http.get(this.iTunesUrl + 'search?/charts');
-  }
-
-    getFilmsByCategory(category): Observable<any> {
-      return this.http.get(this.baseUrl +'categories/' + category);
-    }
 
     getThisProduct(productid): Observable<any> {
       return this.http.get(this.iTunesUrl + 'lookup?id=' + productid +'&callback=');
     }
-
-
 
   getProductBySearch(keystr, searchType): Promise<any>{
     if (searchType == 1){

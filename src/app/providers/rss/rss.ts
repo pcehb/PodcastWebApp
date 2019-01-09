@@ -30,9 +30,10 @@ export class RssProvider {
 
    GetChartRSS(rss_url) {
      const RSS_URL: any = rss_url;
+     const COUNT: any = 100;
      const API_KEY: any = 'f09hfy72bicilx8spnyrbpa2lfozldtay0hihdgk';
 
-     const params = { params: new HttpParams().set('rss_url', RSS_URL).set('api_key',API_KEY)
+     const params = { params: new HttpParams().set('rss_url', RSS_URL).set('api_key',API_KEY).set('count', COUNT)
      }
      return this.http.get(this.API_URL, params);
    }

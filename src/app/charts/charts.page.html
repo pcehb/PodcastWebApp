@@ -7,19 +7,17 @@
 <ion-content>
 
   <ion-list>
-    <ion-item button *ngFor="let item of rssDataArray.items"
+    <ion-item button *ngFor="let item of rssDataArray.items; let i = index"
      [href]="'/details/' + detailsPage(item.link)">
       <ion-label class="episode">
         <div class="episode-left">
-          <img class="artwork" src={{item.artworkUrl100}} alt={{item.collectionName}}>
+          <b><h1 class="position">{{i+1}}.</h1></b>
           </div>
         <div class="episode-right">
-          <b><h2>{{item.title}}</h2></b>
-          <h3>Uploaded on {{getDate(item.pubDate)}}</h3>
+          <h2>{{item.title}}</h2>
         </div>
       </ion-label>
     </ion-item>
   </ion-list>
-
 
 </ion-content>

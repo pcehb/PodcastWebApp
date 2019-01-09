@@ -14,18 +14,7 @@ export class HomePage {
   }
 
   ngOnInit() {
-      let startId = 1;
-      this.api.getCategories().subscribe(response => {
-        this.categories = response.Categories;
-      })
-      this.api.getFilmsByCategory(startId).subscribe(response => {
-        this.podcasts = response.Products;
-      })
-    }
 
-    changeCategory(catId) {
-      this.api.getFilmsByCategory(catId).subscribe(response => {
-        this.podcasts = response.Products;
-      })
-    }
+
   }
+}
