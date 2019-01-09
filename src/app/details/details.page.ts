@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import { iTunesDbService} from '../services/itunes-db.service';
+import { iTunesDbService } from '../services/itunes-db.service';
 import { RssProvider } from '../providers/rss/rss';
+import { FirebaseService } from '../services/firebase.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class DetailsPage implements OnInit {
   order: string = "desc";
   loader: any;
 
-  constructor(private route: ActivatedRoute, private api: iTunesDbService, public rssProvider: RssProvider) {
+  constructor(private route: ActivatedRoute, private firebaseService: FirebaseService,
+  private api: iTunesDbService, public rssProvider: RssProvider) {
   }
 
   Get_RSS_Data(feedUrl) {
@@ -54,13 +56,16 @@ playEpisode(episodeUrl, title, desc, pubDate, author){
   }
 }
 
-addShow(){
-  console.log("show added");
-  localStorage.id = this.route.snapshot.paramMap.get('id');
+  addShow(){
+  let data = {
+      id: this.route.snapshot.paramMap.get('id'),
+      title: document.getElementById("podcastName").innerHTML,
+      image: (<HTMLImageElement>document.getElementById("artwork")).src
+    }
+    this.firebaseService.createShow(data);
 }
 
   ngOnInit() {
-
     this.api.getThisProduct(this.route.snapshot.paramMap.get('id')).subscribe(
       response =>{
         this.Get_RSS_Data(response.results[0].feedUrl);

@@ -15,8 +15,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/tabs/(YourShows:YourShows)',
+        redirectTo: '/tabs/(Playing:Playing)',
         pathMatch: 'full',
+      },
+      {
+        path: 'Playing',
+        outlet: 'Playing',
+        component: PlayingPage
       },
       {
         path: 'YourShows',
@@ -34,11 +39,6 @@ const routes: Routes = [
         component: SearchPage
       },
       {
-        path: 'Playing',
-        outlet: 'Playing',
-        component: PlayingPage
-      },
-      {
         path: 'Settings',
         outlet: 'Settings',
         component: SettingsPage
@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/(YourShows:YourShows)',
+    redirectTo: '/tabs/(Playing:Playing)',
     pathMatch: 'full'
   }
 ];

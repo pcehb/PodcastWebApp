@@ -34,7 +34,6 @@ export class PlayingPage implements OnInit {
   }
 
   ngOnInit() {
-
     var episodeUrl = localStorage.getItem("episodeUrl");
     var title = localStorage.getItem("title");
     var desc = localStorage.getItem("desc");
@@ -53,7 +52,7 @@ export class PlayingPage implements OnInit {
     document.getElementById("desc").innerHTML = desc;
 
     document.getElementById("footer").innerHTML = '<audio src='+episodeUrl+
-    ' controls autoplay style="width:100%">Your browser does not support the audio element.</audio>';
+    ' controls style="width:100%">Your browser does not support the audio element.</audio>';
   }
 
 }
