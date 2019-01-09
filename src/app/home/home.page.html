@@ -1,22 +1,20 @@
 <ion-header>
   <ion-toolbar color="secondary">
-    <ion-title>Home</ion-title>
+    <ion-title>Your Shows</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-item>
-    <ion-label>Categories</ion-label>
-    <ion-select [(ngModel)]="film_types" (ionChange)="changeCategory(film_types)">
-      <ion-select-option *ngFor="let item of categories; let i = index" [selected]="i==0" value="{{item.CategoryId}}">{{item.CategoryName}}</ion-select-option>
-    </ion-select>
-  </ion-item>
-
+<ion-content>
   <ion-list>
-      <ion-item button color="light" *ngFor="let item of podcasts" [href]="'/details/' + item.ProductId" routerDirection="forward">
-        <ion-label>{{item.ProductName}}<br>
-          <span class="sublabel">{{item.Director}}</span>
-        </ion-label>
+      <ion-item button id="button" color="light" *ngFor="let item of shows" [href]="'/details/' + item.payload.doc.data().id" routerDirection="forward">
+      <ion-label>
+        <div class="column left"><img class="artwork" src={{item.payload.doc.data().image}} alt={{item.payload.doc.data().title}}></div>
+        <div class="column right">
+        <h2><b><p class="podcastName">{{item.payload.doc.data().title}}</p></b></h2>
+        </div>
+      </ion-label>
       </ion-item>
-    </ion-list>
+  </ion-list>
 </ion-content>

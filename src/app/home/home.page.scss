@@ -1,7 +1,16 @@
 ion-item{
-  background-color: #fff;
   width: 95%;
   margin: 10px auto;
-  font-weight: bold;
-  border-radius: 20px;
+}
+
+.column {
+  float: left;
+  padding: 5px;
+  white-space: pre-line;
+}
+.left {
+  width: 25%;
+}
+.right {
+  width: 75%;
 }
