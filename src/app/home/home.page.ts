@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
 import * as firebase from 'Firebase';
 
 @Component({
@@ -14,7 +14,7 @@ export class HomePage {
   currentUser = firebase.auth().currentUser;
   ref = firebase.database().ref('shows/'+this.currentUser.uid+'/');
 
-  constructor(private route: ActivatedRoute, public router: Router, public alertController: AlertController) {
+  constructor(public router: Router, public alertController: AlertController) {
     this.ref.on('value', resp => {
       this.infos = [];
       this.infos = snapshotToArray(resp);
@@ -30,7 +30,7 @@ export class HomePage {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: (blah) => {
+          handler: (_blah) => {
             console.log('cancel');
           }
         }, {
