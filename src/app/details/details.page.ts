@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { iTunesDbService } from '../services/itunes-db.service';
 import { RssProvider } from '../providers/rss/rss';
-import { FirebaseService } from '../services/firebase.service';
 import * as firebase from 'Firebase';
 
 @Component({
@@ -20,7 +19,7 @@ export class DetailsPage implements OnInit {
   currentUser = firebase.auth().currentUser;
   ref = firebase.database().ref('shows/'+this.currentUser.uid+'/');
 
-  constructor(private route: ActivatedRoute, private firebaseService: FirebaseService,
+  constructor(private route: ActivatedRoute,
   private api: iTunesDbService, public rssProvider: RssProvider) {
   }
 
