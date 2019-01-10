@@ -1,9 +1,7 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
-      <ion-button href="/tabs/(Search:Search)">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
+      <ion-back-button routerDirection="backward"></ion-back-button>
     </ion-buttons>
     <ion-title *ngIf="item">Episodes</ion-title>
     <ion-buttons slot="end">
@@ -19,8 +17,8 @@
     <ion-label>
     <div class="column left"><img id="artwork" src={{item.artworkUrl600}} alt={{item.collectionName}}></div>
     <div class="column right">
-    <h2><b><p id="podcastName">{{item.collectionName}}</p></b>
-    <p class="sublabel">{{item.artistName}}</p></h2>
+    <h2><b><p id="podcastName" [innerHTML]= item.collectionName></p></b>
+    <p id="hosts" [innerHTML]= item.artistName></p></h2>
     </div>
     </ion-label>
   </ion-list>
@@ -42,7 +40,7 @@
           <img src="./assets/images/ios-play-circle.svg" alt="Play button">
           </div>
         <div class="episode-right">
-          <b><h2>{{item.title}}</h2></b>
+          <b><h2 [innerHTML]= item.title></h2></b>
           <h3>Uploaded on {{getDate(item.pubDate)}}</h3>
         </div>
       </ion-label>
@@ -58,7 +56,7 @@
             <img src="./assets/images/ios-play-circle.svg" alt="Play button">
             </div>
           <div class="episode-right">
-            <b><h2>{{item.title}}</h2></b>
+            <b><h2 [innerHTML]=item.title></h2></b>
             <h3>Uploaded on {{getDate(item.pubDate)}}</h3>
           </div>
         </ion-label>
