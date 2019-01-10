@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router} from '@angular/router';
 import * as firebase from 'Firebase';
+import { ItemSliding } from 'ionic-angular';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ export class HomePage {
     });
   }
 
-  async delete(key) {
+  async delete(slidingItem: ItemSliding, key) {
     const alert = await this.alertController.create({
       header: 'Confirm!',
       message: 'Are you sure want to delete this show?',
@@ -31,20 +32,20 @@ export class HomePage {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (_blah) => {
+            slidingItem.close();
             console.log('cancel');
           }
         }, {
           text: 'Okay',
           handler: () => {
+            slidingItem.close();
             firebase.database().ref('shows/'+this.currentUser.uid+'/'+key).remove();
           }
         }
       ]
     });
-
     await alert.present();
   }
-
 }
 
 export const snapshotToArray = snapshot => {
