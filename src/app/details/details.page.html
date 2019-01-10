@@ -6,7 +6,7 @@
     <ion-title *ngIf="item">Episodes</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="addShow()">
-        <ion-icon name="add-circle"></ion-icon>
+        <ion-icon large name="add-circle"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -17,8 +17,11 @@
     <ion-label>
     <div class="column left"><img id="artwork" src={{item.artworkUrl600}} alt={{item.collectionName}}></div>
     <div class="column right">
-    <h2><b><p id="podcastName" [innerHTML]= item.collectionName></p></b>
-    <p id="hosts" [innerHTML]= item.artistName></p></h2>
+    <h2><b><p class="stats" id="podcastName" [innerHTML]= item.collectionName></p></b>
+      <p class="stats" id="hosts" [innerHTML]= "'<b>Hosted By: </b>' + item.artistName"></p>
+      <p class="stats" id="desc" [innerHTML]= "'<b>Episodes: </b>' + item.trackCount"></p>
+      <p class="stats" id="desc" [innerHTML]= "'<b>Genre: </b>' + item.primaryGenreName"></p>
+    </h2>
     </div>
     </ion-label>
   </ion-list>

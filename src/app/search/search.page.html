@@ -9,11 +9,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar #mySearchBar [(ngModel)]="searchQuery" placeholder="Search by title" [debounce]="250" (change)="onInput()" autocorrect="off">
+  <ion-searchbar class="searchbar" #mySearchBar [(ngModel)]="searchQuery" placeholder="Search by title" [debounce]="250" (change)="onInput()" autocorrect="off">
   </ion-searchbar>
   <ion-list>
-    <ion-item button color="light" *ngFor="let item of api.results" [href]="'/details/' + item.collectionId" routerDirection="forward">
-      <ion-label>
+    <ion-item button detail lines="full" *ngFor="let item of api.results" [href]="'/details/' + item.collectionId" routerDirection="forward">
+      <ion-label class="show">
         <div class="column left"><img class="artwork" src={{item.artworkUrl100}} alt={{item.collectionName}}></div>
         <div class="column right">
         <h2><b><p class="podcastName" [innerHTML]=item.collectionName></p></b>

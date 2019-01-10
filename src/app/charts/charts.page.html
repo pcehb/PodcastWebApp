@@ -7,7 +7,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item button *ngFor="let item of rssDataArray.items; let i = index"
+    <ion-item detail lines="full" button *ngFor="let item of rssDataArray.items; let i = index"
      [href]="'/details/' + detailsPage(item.link)">
       <ion-label class="episode">
         <div class="episode-left">

@@ -11,6 +11,7 @@ import { ItemSliding } from 'ionic-angular';
 })
 
 export class HomePage {
+  rootPage = HomePage;
   infos = [];
   currentUser = firebase.auth().currentUser;
   ref = firebase.database().ref('shows/'+this.currentUser.uid+'/');
