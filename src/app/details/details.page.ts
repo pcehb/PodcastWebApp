@@ -3,6 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 import { iTunesDbService } from '../services/itunes-db.service';
 import { RssProvider } from '../providers/rss/rss';
 import * as firebase from 'Firebase';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-details',
@@ -19,7 +20,7 @@ export class DetailsPage implements OnInit {
   currentUser = firebase.auth().currentUser;
   ref = firebase.database().ref('shows/'+this.currentUser.uid+'/');
 
-  constructor(private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute, public alertController: AlertController,
   private api: iTunesDbService, public rssProvider: RssProvider) {
   }
 
@@ -57,14 +58,35 @@ playEpisode(episodeUrl, title, desc, pubDate, author){
   }
 }
 
-  addShow(){
-  let data = {
-      id: this.route.snapshot.paramMap.get('id'),
-      title: document.getElementById("podcastName").innerHTML,
-      image: (<HTMLImageElement>document.getElementById("artwork")).src
-    }
-    let newInfo = firebase.database().ref('shows/'+this.currentUser.uid+'/').push();
-    newInfo.set(data);
+
+async addShow() {
+  const alert = await this.alertController.create({
+    header: 'Confirm!',
+    message: 'Are you sure want to add this to Your Shows?',
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        cssClass: 'secondary',
+        handler: (_blah) => {
+          console.log('cancel');
+        }
+      }, {
+        text: 'Okay',
+        handler: () => {
+          let data = {
+              id: this.route.snapshot.paramMap.get('id'),
+              title: document.getElementById("podcastName").innerHTML,
+              artistName: document.getElementById("hosts").innerHTML,
+              image: (<HTMLImageElement>document.getElementById("artwork")).src
+            }
+            let newInfo = firebase.database().ref('shows/'+this.currentUser.uid+'/').push();
+            newInfo.set(data);
+        }
+      }
+    ]
+  });
+  await alert.present();
 }
 
   ngOnInit() {
