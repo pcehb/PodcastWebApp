@@ -16,8 +16,8 @@
       <ion-label>
         <div class="column left"><img class="artwork" src={{item.artworkUrl100}} alt={{item.collectionName}}></div>
         <div class="column right">
-        <h2><b><p class="podcastName">{{item.collectionName}}</p></b>
-        <p class="sublabel">{{item.artistName}}</p></h2>
+        <h2><b><p class="podcastName" [innerHTML]=item.collectionName></p></b>
+        <p class="sublabel" [innerHTML]=item.artistName></p></h2>
         </div>
       </ion-label>
     </ion-item>
