@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar color="secondary">
-    <ion-title>The UK Top Charts!</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>The UK Top Podcast Charts!</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,10 +11,11 @@
      [href]="'/details/' + detailsPage(item.link)">
       <ion-label class="episode">
         <div class="episode-left">
-          <b><h1 class="position">{{i+1}}.</h1></b>
+          <h1 class="position">{{i+1}}</h1>
           </div>
         <div class="episode-right">
-          <h2 [innerHTML]=item.title></h2>
+          <h2><b><p class="podcastName" [innerHTML]=getTitle(item.title)></p></b></h2>
+          <p [innerHTML]=getName(item.title)></p>
         </div>
       </ion-label>
     </ion-item>
