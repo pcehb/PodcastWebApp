@@ -1,10 +1,19 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>The UK Top Podcast Charts!</ion-title>
+    <ion-title>Charts</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-slides pager>
+  <ion-slide>
+    <img src="./assets/images/line-chart.svg" alt="Top charts icon">
+  </ion-slide>
+  <ion-slide>
+    <p>The top ranking 100 podcast in the UK right now, all available for your listening pleasure.</p>
+  </ion-slide>
+</ion-slides>
 
   <ion-list>
     <ion-item detail lines="full" button *ngFor="let item of rssDataArray.items; let i = index"

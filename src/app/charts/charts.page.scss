@@ -39,10 +39,25 @@ ion-list{
   margin: 0px;
   padding: 0px;
 }
-//
-// p{
-//   color:#666;
-// }
+
+ion-slides {
+    height: 210px;
+    background-image: linear-gradient(#e1eec9, #fff);
+  }
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  background-image: linear-gradient(#4197c4, #c9e1ee);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+ion-slide  p{
+  padding: 40px;
+}
 
 ion-item{
   background-color: #ecf4dc;
