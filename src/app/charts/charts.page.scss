@@ -1,12 +1,6 @@
-.column {
-  float: left;
-  padding: 10px;
-  white-space: pre-line;
-}
-
 .episode{
   background-color: #ecf4dc;
-  padding: 10px 10px 10px 0;
+  padding: 5px 5px 5px 0;
   white-space: pre-line;
 }
 
@@ -35,6 +29,11 @@
   white-space: pre-line;
 }
 
+ion-item{
+  background-color: #ecf4dc;
+  margin: 10px;
+}
+
 ion-list{
   margin: 0px;
   padding: 0px;
@@ -57,9 +56,4 @@ img {
 
 ion-slide  p{
   padding: 40px;
-}
-
-ion-item{
-  background-color: #ecf4dc;
-  margin: 10px;
 }
