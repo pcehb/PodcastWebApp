@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import {Events} from '@ionic/angular';
+import { Router} from '@angular/router';
 import{ iTunesDbService} from '../services/itunes-db.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class SearchPage {
 
   @ViewChild('mySearchBar', {read: ElementRef}) mySearchBar:ElementRef;
 
-  constructor(private events: Events, private api: iTunesDbService, private renderer: Renderer2) {
+  constructor(public router: Router, private events: Events, private api: iTunesDbService, private renderer: Renderer2) {
     this.search_type = 1;
     this.events.subscribe('functionCall:changeSearch', eventData => {
       this.changeSearch(eventData);
@@ -25,6 +26,10 @@ export class SearchPage {
     if (this.searchQuery != "") {
       this.api.getProductBySearch(this.searchQuery, this.search_type);
     }
+  }
+  details(link){
+    localStorage.backTo = String("tabs/(Search:Search)");
+    this.router.navigate(['details/' + link]);
   }
 
   changeSearch(byTitle) {

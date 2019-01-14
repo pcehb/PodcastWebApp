@@ -4,6 +4,7 @@ import { iTunesDbService } from '../services/itunes-db.service';
 import { RssProvider } from '../providers/rss/rss';
 import * as firebase from 'Firebase';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -21,7 +22,7 @@ export class DetailsPage implements OnInit {
   ref = firebase.database().ref('shows/'+this.currentUser.uid+'/');
 
   constructor(private route: ActivatedRoute, public alertController: AlertController,
-  private api: iTunesDbService, public rssProvider: RssProvider) {
+  private api: iTunesDbService, private router: Router, public rssProvider: RssProvider) {
   }
 
   Get_RSS_Data(feedUrl) {
@@ -87,6 +88,11 @@ async addShow() {
     ]
   });
   await alert.present();
+}
+
+back(){
+  var backTo = localStorage.getItem("backTo");
+  this.router.navigateByUrl(backTo);
 }
 
   ngOnInit() {

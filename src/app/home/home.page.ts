@@ -23,6 +23,11 @@ export class HomePage {
     });
   }
 
+details(link){
+  localStorage.backTo = String("tabs/(YourShows:YourShows)");
+  this.router.navigate(['details/' + link]);
+}
+
   async delete(slidingItem: ItemSliding, key) {
     const alert = await this.alertController.create({
       header: 'Confirm!',

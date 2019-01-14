@@ -12,7 +12,7 @@
   <ion-searchbar class="searchbar" #mySearchBar [(ngModel)]="searchQuery" placeholder="Search by title" [debounce]="250" (change)="onInput()" autocorrect="off">
   </ion-searchbar>
   <ion-list>
-    <ion-item button detail lines="full" *ngFor="let item of api.results" [href]="'/details/' + item.collectionId" routerDirection="forward">
+    <ion-item button detail lines="full" *ngFor="let item of api.results" (click)="details(item.collectionId)">
       <ion-label class="show">
         <div class="column left"><img class="artwork" src={{item.artworkUrl100}} alt={{item.collectionName}}></div>
         <div class="column right">

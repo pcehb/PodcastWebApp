@@ -7,7 +7,7 @@
 <ion-content>
   <ion-list>
     <ion-item-sliding #slidingItem *ngFor="let info of infos">
-      <ion-item detail lines="full" [href]="'/details/' + info.id" routerDirection="forward">
+      <ion-item detail lines="full" (click)="details(info.id)">
       <ion-label>
         <div class="column left"><img class="artwork" src={{info.image}} alt={{info.title}}></div>
         <div class="column right">

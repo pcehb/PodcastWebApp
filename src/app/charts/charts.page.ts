@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RssProvider } from '../providers/rss/rss';
 import { HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chart',
@@ -16,7 +17,7 @@ export class ChartPage implements OnInit {
   loader: any;
   url: any = "https://rss.itunes.apple.com/api/v1/gb/podcasts/top-podcasts/all/100/explicit.rss";
 
-  constructor( public http: HttpClient, public rssProvider: RssProvider) {
+  constructor( public http: HttpClient, private router: Router, public rssProvider: RssProvider) {
   }
 
   Get_Chart_RSS_Data(feedUrl) {
@@ -38,11 +39,12 @@ getName(title){
   return array[1];
 }
 
-detailsPage(link){
+details(link){
     var podcastID = link.split("id");
     podcastID = podcastID[1].split("?");
     podcastID = podcastID[0];
-    return podcastID;
+    localStorage.backTo = String("tabs/(Charts:Charts)");
+    this.router.navigate(['details/' + podcastID]);
 }
 
   ngOnInit() {
