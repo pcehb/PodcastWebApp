@@ -28,11 +28,11 @@ export class LoginPage implements OnInit {
   }
 
   goToResetPassword() {
-    this.router.navigate(['/ResetPassword']);
+    this.router.navigate(['/resetpassword']);
   }
 
   createAccount() {
-    this.router.navigate(['/Signup']);
+    this.router.navigate(['/signup']);
   }
 
   async loginUser(loginForm: FormGroup): Promise<void> {

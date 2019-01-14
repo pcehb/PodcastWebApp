@@ -39,7 +39,7 @@ export class SettingsPage implements OnInit{
 }
 
 goToResetPassword() {
-  this.router.navigate(['/ResetPassword']);
+  this.router.navigate(['/resetpassword']);
 }
   ngOnInit() {
   }
