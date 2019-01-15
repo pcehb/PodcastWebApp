@@ -12,11 +12,6 @@ export class RssProvider {
      this.API_URL = "https://api.rss2json.com/v1/api.json";
    }
 
-   currentlyPlaying(){
-     var episodeUrl = localStorage.getItem("episodeUrl");
-     this.events.publish('url', episodeUrl);
-   }
-
    GetRSS(rss_url, order_dir) {
      const ORDER_DIR: any = order_dir;
      const RSS_URL: any = rss_url;

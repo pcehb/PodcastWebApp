@@ -47,6 +47,7 @@ getDate(pubDate){
 
 playEpisode(episodeUrl, title, desc, pubDate, author){
   if (typeof(Storage) !== "undefined") {
+      localStorage.desc = String(desc);
       localStorage.episodeUrl = String(episodeUrl);
       localStorage.title = String(title);
       localStorage.desc = String(desc);
@@ -54,7 +55,6 @@ playEpisode(episodeUrl, title, desc, pubDate, author){
       localStorage.author = String(author);
       localStorage.collectionName = document.getElementById("podcastName").innerHTML;
       localStorage.artworkUrl600 = (<HTMLImageElement>document.getElementById("artwork")).src;
-      this.rssProvider.currentlyPlaying();
   } else {
   }
 }
