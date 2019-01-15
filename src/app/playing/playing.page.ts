@@ -23,7 +23,7 @@ export class PlayingPage implements OnInit {
 
     var date = new Date(pubDate);
     var months = Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-    var publishDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear()
+    var publishDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
 
     document.getElementById("title").innerHTML = title;
     document.getElementById("collectionName").innerHTML = collectionName;
